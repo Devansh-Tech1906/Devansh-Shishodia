@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Devansh | Courses</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+</head>
+<body>
+
+<nav class="navbar">
+  <div class="logo">Devansh.</div>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="projects.html">Projects</a></li>
+    <li><a href="certificates.html" class="highlight">Certificates</a></li>
+    <li><a href="index.html#contact">Contact</a></li>
+  </ul>
+  <div class="burger"><div class="line1"></div><div class="line2"></div><div class="line3"></div></div>
+</nav>
+
+<section class="container" style="padding-top: 150px; min-height: 100vh;">
+  <a href="certificates.html" class="btn-secondary" style="margin-bottom: 40px; display: inline-block;">
+    <i class="fas fa-arrow-left"></i> Back to Folders
+  </a>
+
+  <h2 class="section-title" data-aos="fade-down">Course Certificates</h2>
+
+  <div class="projects-grid">
+
+    <div class="project-card cert-levitate-card" data-aos="fade-right" data-aos-delay="100" onclick="openCertModal('Enumeration Basics', 'images/enumeration.jpg')">
+      <div class="card-content">
+        <div class="levitate-container small-view">
+          <div class="cert-shadow"></div>
+          <img src="images/enumeration.jpg" alt="Enumeration" class="floating-cert">
+          <div class="cert-base"></div>
+        </div>
+        <div class="cert-info mt-3">
+          <h3>Enumeration Basics</h3>
+          <p style="color: #aaa;">Course Completion</p>
+          <div class="click-hint">View Details <i class="fas fa-expand"></i></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="project-card cert-levitate-card" data-aos="fade-left" data-aos-delay="200" onclick="openCertModal('Network Hacking', 'images/network.jpg')">
+      <div class="card-content">
+        <div class="levitate-container small-view">
+          <div class="cert-shadow"></div>
+          <img src="images/network.jpg" alt="Network" class="floating-cert">
+          <div class="cert-base"></div>
+        </div>
+        <div class="cert-info mt-3">
+          <h3>Network Hacking</h3>
+          <p style="color: #aaa;">Advanced Networking</p>
+          <div class="click-hint">View Details <i class="fas fa-expand"></i></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="project-card cert-levitate-card" data-aos="fade-right" data-aos-delay="300" onclick="openCertModal('Intro to Cybersecurity', 'images/cisco.png')">
+      <div class="card-content">
+        <div class="levitate-container small-view">
+          <div class="cert-shadow"></div>
+          <img src="images/cisco.png" alt="Cisco Cybersecurity" class="floating-cert">
+          <div class="cert-base"></div>
+        </div>
+        <div class="cert-info mt-3">
+          <h3>Intro to Cybersecurity</h3>
+          <p style="color: #aaa;">Cisco Networking Academy</p>
+          <div class="click-hint">View Details <i class="fas fa-expand"></i></div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<div id="certModal" class="modal">
+  <span class="close-btn" onclick="closeCertModal()">&times;</span>
+  <div class="modal-image-container">
+    <h2 id="cert-modal-title">Certificate Title</h2>
+    <img id="cert-modal-img" src="" alt="Certificate View">
+  </div>
+</div>
+
+<footer><p>&copy; <span id="year"></span> Devansh. All rights reserved.</p></footer>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script src="script.js"></script>
+</body>
+</html>

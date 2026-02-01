@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Devansh | CTF Achievements</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+</head>
+<body>
+
+<nav class="navbar">
+    <div class="logo">Devansh.</div>
+    <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="certificates.html" class="highlight">Certificates</a></li>
+        <li><a href="index.html#contact">Contact</a></li>
+    </ul>
+    <div class="burger"><div class="line1"></div><div class="line2"></div><div class="line3"></div></div>
+</nav>
+
+<section class="container" style="padding-top: 150px; min-height: 100vh;">
+    <a href="certificates.html" class="btn-secondary" style="margin-bottom: 40px; display: inline-block;"><i class="fas fa-arrow-left"></i> Back to Folders</a>
+    <h2 class="section-title" data-aos="fade-down">CTF Competitions</h2>
+    <div class="projects-grid">
+
+        <div class="project-card cert-levitate-card" data-aos="fade-right" data-aos-delay="100" onclick="openCertModal('Blitz CTF', 'images/blitz.jpg')">
+            <div class="card-content">
+                <div class="levitate-container small-view">
+                    <div class="cert-shadow"></div>
+                    <img src="images/blitz.jpg" alt="Blitz CTF" class="floating-cert">
+                    <div class="cert-base"></div>
+                </div>
+                <div class="cert-info mt-3"><h3>Blitz CTF</h3><p style="color:#aaa;">Achievement</p></div>
+            </div>
+        </div>
+
+        <div class="project-card cert-levitate-card" data-aos="fade-left" data-aos-delay="200" onclick="openCertModal('EY DSCI CTF', 'images/ey.jpg')">
+            <div class="card-content">
+                <div class="levitate-container small-view">
+                    <div class="cert-shadow"></div>
+                    <img src="images/ey.jpg" alt="EY DSCI" class="floating-cert">
+                    <div class="cert-base"></div>
+                </div>
+                <div class="cert-info mt-3"><h3>EY DSCI CTF</h3><p style="color:#aaa;">Cyber Challenge</p></div>
+            </div>
+        </div>
+
+        <div class="project-card cert-levitate-card" data-aos="fade-right" data-aos-delay="300" onclick="openCertModal('OWASP', 'images/owasp.jpg')">
+            <div class="card-content">
+                <div class="levitate-container small-view">
+                    <div class="cert-shadow"></div>
+                    <img src="images/owasp.jpg" alt="OWASP" class="floating-cert">
+                    <div class="cert-base"></div>
+                </div>
+                <div class="cert-info mt-3"><h3>OWASP</h3><p style="color:#aaa;">Web Security</p></div>
+            </div>
+        </div>
+
+        <div class="project-card cert-levitate-card" data-aos="fade-left" data-aos-delay="400" onclick="openCertModal('Perfect CTF', 'images/perfect.jpg')">
+            <div class="card-content">
+                <div class="levitate-container small-view">
+                    <div class="cert-shadow"></div>
+                    <img src="images/perfect.jpg" alt="Perfect CTF" class="floating-cert">
+                    <div class="cert-base"></div>
+                </div>
+                <div class="cert-info mt-3"><h3>Perfect CTF</h3><p style="color:#aaa;">Excellence Award</p></div>
+            </div>
+        </div>
+
+        <div class="project-card cert-levitate-card" data-aos="fade-right" data-aos-delay="500" onclick="openCertModal('Yukthi CTF 2.0', 'images/yukthi.png')">
+            <div class="card-content">
+                <div class="levitate-container small-view">
+                    <div class="cert-shadow"></div>
+                    <img src="images/yukthi.png" alt="Yukthi CTF" class="floating-cert">
+                    <div class="cert-base"></div>
+                </div>
+                <div class="cert-info mt-3">
+                    <h3>Yukthi CTF 2.0</h3>
+                    <p style="color:#aaa;">National Level Prelims</p>
+                    <div class="click-hint">View Details <i class="fas fa-expand"></i></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="project-card cert-levitate-card" data-aos="fade-left" data-aos-delay="600" onclick="openCertModal('GCA 01 CTF', 'images/gca.png')">
+            <div class="card-content">
+                <div class="levitate-container small-view">
+                    <div class="cert-shadow"></div>
+                    <img src="images/gca.png" alt="GCA CTF" class="floating-cert">
+                    <div class="cert-base"></div>
+                </div>
+                <div class="cert-info mt-3">
+                    <h3>GCA 01 CTF</h3>
+                    <p style="color:#aaa;">Competition Completion</p>
+                    <div class="click-hint">View Details <i class="fas fa-expand"></i></div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<div id="certModal" class="modal"><span class="close-btn" onclick="closeCertModal()">&times;</span><div class="modal-image-container"><h2 id="cert-modal-title"></h2><img id="cert-modal-img" src=""></div></div>
+<footer><p>&copy; <span id="year"></span> Devansh. All rights reserved.</p></footer>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script src="script.js"></script>
+</body>
+</html>

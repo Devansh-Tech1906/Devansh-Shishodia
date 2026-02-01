@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Devansh | Projects</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+</head>
+<body>
+
+<nav class="navbar">
+    <div class="logo">Devansh.</div>
+    <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="index.html#about">About</a></li>
+        <li><a href="projects.html" class="highlight">Projects</a></li>
+        <li><a href="certificates.html">Certificates</a></li>
+        <li><a href="index.html#contact">Contact</a></li>
+        <li><a href="resume.pdf" download class="btn-resume">Resume <i class="fas fa-download"></i></a></li>
+    </ul>
+    <div class="burger"><div class="line1"></div><div class="line2"></div><div class="line3"></div></div>
+</nav>
+
+<section class="container" style="padding-top: 180px; min-height: 100vh;">
+    <h2 class="section-title" data-aos="fade-down">Featured Projects</h2>
+    <div class="projects-grid">
+
+        <div class="project-card" data-aos="fade-right" data-aos-delay="100" onclick="openModal('spam')">
+            <div class="card-content">
+                <div class="cert-icon"><i class="fas fa-robot"></i></div>
+                <h3>AI Spam Detector</h3>
+                <p>Machine Learning web app filtering SMS and Emails with high accuracy.</p>
+                <div class="tech-stack"><span>Python</span><span>Flask</span><span>ML</span></div>
+                <div class="click-hint">Click for Details <i class="fas fa-arrow-right"></i></div>
+            </div>
+        </div>
+
+        <div class="project-card" data-aos="fade-left" data-aos-delay="300" onclick="openModal('safety')">
+            <div class="card-content">
+                <div class="cert-icon"><i class="fas fa-shield-halved"></i></div>
+                <h3>Women's Safety App</h3>
+                <p>Desktop emergency response system for rapid SOS alerts.</p>
+                <div class="tech-stack"><span>Java</span><span>SQL</span><span>Swing</span></div>
+                <div class="click-hint">Click for Details <i class="fas fa-arrow-right"></i></div>
+            </div>
+        </div>
+
+        <div class="project-card" data-aos="fade-right" data-aos-delay="500" onclick="openModal('security')">
+            <div class="card-content">
+                <div class="cert-icon"><i class="fas fa-user-lock"></i></div>
+                <h3>Privacy-First Security</h3>
+                <p>Client-side password entropy calculator using k-Anonymity.</p>
+                <div class="tech-stack"><span>JS</span><span>Crypto</span><span>API</span></div>
+                <div class="click-hint">Click for Details <i class="fas fa-arrow-right"></i></div>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<div id="projectModal" class="modal">
+    <div class="modal-content" id="modal-card">
+        <span class="close-btn" onclick="closeModal()">&times;</span>
+        <div class="modal-header">
+            <h2 id="modal-title">Project Title</h2>
+            <div class="modal-tech" id="modal-tech"></div>
+        </div>
+        <div class="modal-body">
+            <p id="modal-desc">Description goes here...</p>
+            <div class="modal-actions">
+                <a href="#" id="modal-live" target="_blank" class="btn">Live Demo <i class="fas fa-external-link-alt"></i></a>
+                <a href="#" id="modal-github" target="_blank" class="btn btn-secondary">GitHub <i class="fab fa-github"></i></a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<footer><p>&copy; <span id="year"></span> Devansh. All rights reserved.</p></footer>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
