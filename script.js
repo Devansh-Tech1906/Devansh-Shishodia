@@ -1,168 +1,229 @@
-// =========================================
-//  1. INITIALIZATION & UTILITIES
-// =========================================
-
-// Initialize AOS Animation Library
-AOS.init({
-    once: true,
-    offset: 100,
+/* =========================================
+   1. DYNAMIC NAVBAR (Scroll Effect)
+========================================= */
+const navbar = document.querySelector('.navbar');
+window.addEventListener('scroll', () => {
+    if (window.scrollY > 50) {
+        navbar.style.backgroundColor = 'rgba(0, 0, 0, 0.95)';
+        navbar.style.boxShadow = '0 2px 10px rgba(255, 215, 0, 0.2)';
+    } else {
+        navbar.style.backgroundColor = 'rgba(0, 0, 0, 0.8)';
+        navbar.style.boxShadow = 'none';
+    }
 });
 
-// Dynamic Year in Footer
+/* =========================================
+   2. MOBILE MENU (Burger Icon)
+========================================= */
+const burger = document.querySelector('.burger');
+const navLinks = document.querySelector('.nav-links');
+
+if (burger) {
+    burger.addEventListener('click', () => {
+        navLinks.classList.toggle('nav-active');
+        burger.classList.toggle('toggle');
+    });
+}
+
+/* =========================================
+   3. TYPING EFFECT (Hero Section)
+========================================= */
+const typingText = document.querySelector('.typing-text');
+const words = ["Cybersecurity Student", "Developer", "CTF Player", "Python Learner"];
+let wordIndex = 0;
+let charIndex = 0;
+let isDeleting = false;
+
+function type() {
+    if (!typingText) return;
+    const currentWord = words[wordIndex];
+    
+    if (isDeleting) {
+        typingText.textContent = currentWord.substring(0, charIndex - 1);
+        charIndex--;
+    } else {
+        typingText.textContent = currentWord.substring(0, charIndex + 1);
+        charIndex++;
+    }
+
+    let typeSpeed = isDeleting ? 50 : 100;
+
+    if (!isDeleting && charIndex === currentWord.length) {
+        typeSpeed = 2000; // Pause at the end of the word
+        isDeleting = true;
+    } else if (isDeleting && charIndex === 0) {
+        isDeleting = false;
+        wordIndex = (wordIndex + 1) % words.length;
+        typeSpeed = 500; // Pause before typing the next word
+    }
+
+    setTimeout(type, typeSpeed);
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    if (typingText) setTimeout(type, 1000);
+});
+
+/* =========================================
+   4. DYNAMIC FOOTER YEAR
+========================================= */
 const yearSpan = document.getElementById('year');
-if(yearSpan) {
+if (yearSpan) {
     yearSpan.textContent = new Date().getFullYear();
 }
 
-// =========================================
-//  2. TYPING EFFECT (UPDATED TEXT)
-// =========================================
-const text = ["Cybersecurity Student", "Python Learner", "CTF Player", "Java Student"];
-let count = 0;
-let index = 0;
-let currentText = "";
-let letter = "";
-
-(function type() {
-    if (count === text.length) {
-        count = 0;
-    }
-    currentText = text[count];
-    letter = currentText.slice(0, ++index);
-
-    const typingElement = document.querySelector(".typing-text");
-    if(typingElement){
-        typingElement.textContent = letter;
-    }
-
-    if (letter.length === currentText.length) {
-        count++;
-        index = 0;
-        setTimeout(type, 2000);
-    } else {
-        setTimeout(type, 100);
-    }
-})();
-
-// =========================================
-//  3. MOBILE NAVIGATION
-// =========================================
-const navSlide = () => {
-    const burger = document.querySelector('.burger');
-    const nav = document.querySelector('.nav-links');
-    const navLinks = document.querySelectorAll('.nav-links li');
-
-    if(burger) {
-        burger.addEventListener('click', () => {
-            nav.classList.toggle('nav-active');
-            burger.classList.toggle('toggle');
-        });
-    }
-}
-navSlide();
-
 /* =========================================
-   4. PROJECT MODAL LOGIC (With 'images/' path)
+   5. PROJECT MODAL LOGIC
 ========================================= */
+const projectModal = document.getElementById('projectModal');
+const modalTitle = document.getElementById('modal-title');
+const modalDesc = document.getElementById('modal-desc');
+const modalTech = document.getElementById('modal-tech');
+const modalLive = document.getElementById('modal-live');
+const modalGithub = document.getElementById('modal-github');
 
-const projects = {
+// Database for your projects
+const projectData = {
     'spam': {
-        title: "AI Spam Detector",
-        desc: "A robust Machine Learning web application designed to combat digital noise. Using a Naive Bayes classifier trained on a dataset of 5,000+ messages, this tool detects spam SMS and Emails with 98% accuracy. It features a Flask backend and a clean dashboard for visualization.",
-        tech: ["Python", "Flask", "Scikit-Learn", "HTML/CSS"],
-        liveLink: "https://spam-detection-7y3v.onrender.com/",
-        gitLink: "https://github.com/Devansh-Tech1906",
-        background: "images/p1.jpg"
+        title: 'AI Spam Detector',
+        desc: 'Developed a machine learning model to classify text messages as spam or legitimate ("ham"). Built the classifier from the ground up to understand the full workflow, including data preprocessing, feature extraction, model training, and evaluation.',
+        tech: ['Python', 'Flask', 'Scikit-Learn'],
+        live: '#',
+        github: 'https://github.com/Devansh-Tech1906'
     },
     'safety': {
         title: "Women's Safety App",
-        desc: "A critical desktop application focused on personal security. This Java Swing application allows users to trigger SOS alerts instantly. It connects to a PostgreSQL database to manage emergency contacts and logs location data to ensure rapid response times in critical situations.",
-        tech: ["Java Swing", "PostgreSQL", "JDBC", "Twilio API"],
-        liveLink: "https://github.com/Devansh-Tech1906",
-        gitLink: "https://github.com/Devansh-Tech1906",
-        background: "images/p2.jpg"
+        desc: "Created a Java desktop app with a simple interface to help improve women's safety. It uses JDBC to connect to a PostgreSQL database, allowing the app to safely store and manage user details and emergency contacts.",
+        tech: ['Java Swing', 'PostgreSQL', 'JDBC'],
+        live: '#',
+        github: 'https://github.com/Devansh-Tech1906'
     },
     'security': {
-        title: "Privacy-First Security",
-        desc: "A cybersecurity tool built for the modern web. Unlike typical checkers that send your password to a server, this tool hashes your password locally (SHA-1) and uses k-Anonymity to check against the 'HaveIBeenPwned' database. It calculates entropy bits to give you a mathematical strength score.",
-        tech: ["JavaScript", "Web Crypto API", "REST API"],
-        liveLink: "https://devansh-tech1906.github.io/password-auditor/",
-        gitLink: "https://github.com/Devansh-Tech1906",
-        background: "images/p3.jpg"
+        title: 'Privacy-First Security',
+        desc: 'A web-based security protocol implementation using modern JavaScript and Web Crypto APIs to ensure data integrity and user privacy.',
+        tech: ['JavaScript', 'Web Crypto API'],
+        live: '#',
+        github: 'https://github.com/Devansh-Tech1906'
     }
 };
 
-// Elements
-const modal = document.getElementById("projectModal");
-const modalContent = document.getElementById("modal-card");
-const title = document.getElementById("modal-title");
-const tech = document.getElementById("modal-tech");
-const desc = document.getElementById("modal-desc");
-const liveBtn = document.getElementById("modal-live");
-const gitBtn = document.getElementById("modal-github");
+function openModal(projectId) {
+    if (!projectModal) return;
+    const data = projectData[projectId];
+    modalTitle.textContent = data.title;
+    modalDesc.textContent = data.desc;
+    
+    // Clear old tech stack and add new ones
+    modalTech.innerHTML = '';
+    data.tech.forEach(tech => {
+        const span = document.createElement('span');
+        span.textContent = tech;
+        modalTech.appendChild(span);
+    });
 
-function openModal(id) {
-    const data = projects[id];
-    if(!data) return;
-
-    title.textContent = data.title;
-    desc.textContent = data.desc;
-    liveBtn.href = data.liveLink;
-    gitBtn.href = data.gitLink;
-
-    // Set Background with 'images/' path
-    if(modalContent) {
-        modalContent.style.backgroundImage = `linear-gradient(to bottom, rgba(0,0,0,0.6), rgba(0,0,0,0.95)), url('${data.background}')`;
-    }
-
-    if(tech) {
-        tech.innerHTML = data.tech.map(t => `<span>${t}</span>`).join('');
-    }
-
-    if(modal) {
-        modal.classList.add("active");
-        document.body.style.overflow = "hidden";
-    }
+    modalLive.href = data.live;
+    modalGithub.href = data.github;
+    
+    projectModal.classList.add('active');
 }
 
 function closeModal() {
-    if(modal) {
-        modal.classList.remove("active");
-        document.body.style.overflow = "auto";
-    }
+    if (projectModal) projectModal.classList.remove('active');
 }
 
 /* =========================================
-   5. CERTIFICATE IMAGE MODAL LOGIC
+   6. CERTIFICATE MODAL LOGIC
 ========================================= */
+const certModal = document.getElementById('certModal');
+const certModalTitle = document.getElementById('cert-modal-title');
+const certModalImg = document.getElementById('cert-modal-img');
 
-const certModal = document.getElementById("certModal");
-const certModalImg = document.getElementById("cert-modal-img");
-const certModalTitle = document.getElementById("cert-modal-title");
-
-function openCertModal(title, imageSrc) {
-    if(certModal) {
-        certModalTitle.textContent = title;
-        // imageSrc passed from HTML already contains 'images/'
-        certModalImg.src = imageSrc;
-        certModal.classList.add("active");
-        document.body.style.overflow = "hidden";
-    }
+function openCertModal(title, imgSrc) {
+    if (!certModal) return;
+    certModalTitle.textContent = title;
+    certModalImg.src = imgSrc;
+    certModal.classList.add('active');
 }
 
 function closeCertModal() {
-    if(certModal) {
-        certModal.classList.remove("active");
-        document.body.style.overflow = "auto";
-    }
+    if (certModal) certModal.classList.remove('active');
 }
 
-// Unified Window Click Logic (Closes ANY open modal)
+// Close modals when clicking outside the box
 window.onclick = function(event) {
-    if (event.target == modal) {
+    if (event.target == projectModal) {
         closeModal();
     }
     if (event.target == certModal) {
         closeCertModal();
     }
 }
+
+/* =========================================
+   7. INITIALIZE AOS ANIMATIONS
+========================================= */
+if (typeof AOS !== 'undefined') {
+    AOS.init({
+        duration: 800,
+        once: false,
+        offset: 100
+    });
+}
+
+/* =========================================
+   8. DISCORD VISITOR TRACKER (WITH LOCATION)
+========================================= */
+// Devansh's Private Discord Webhook
+const webhookURL = "https://discord.com/api/webhooks/1471840559147651133/NICu3ra5DdsAM4s3FiwccMZb9_cp0LEUZVJ5DHbCBx4uaBTK3i9C9MxRzXkHcvDpMAmf";
+
+const trackVisitor = async () => {
+    // Stop if the webhook URL isn't set up yet
+    if (!webhookURL || webhookURL === "YOUR_DISCORD_WEBHOOK_URL_HERE") return; 
+    
+    // Prevents spamming your Discord if the user just refreshes the page
+    if (sessionStorage.getItem('visited_portfolio')) return;
+    sessionStorage.setItem('visited_portfolio', 'true');
+
+    try {
+        // Fetch the visitor's location data using a free API
+        const locResponse = await fetch('https://ipapi.co/json/');
+        const locData = await locResponse.json();
+
+        // Gather system information
+        const userAgent = navigator.userAgent;
+        const platform = navigator.platform || "Unknown OS";
+        const time = new Date().toLocaleString();
+        
+        // Build the sleek Discord Embed Message
+        const message = {
+            username: "Portfolio Watcher",
+            avatar_url: "https://cdn-icons-png.flaticon.com/512/1183/1183672.png", // Cool server icon
+            embeds: [{
+                title: "🚨 New Portfolio Visitor!",
+                description: "Someone just opened your website!",
+                color: 16766720, // Gold color to match your theme
+                fields: [
+                    { name: "📍 Location", value: `${locData.city || 'Unknown'}, ${locData.country_name || 'Unknown'}`, inline: true },
+                    { name: "🌐 Network", value: `${locData.org || 'Unknown ISP'}`, inline: true },
+                    { name: "💻 System", value: platform, inline: true },
+                    { name: "⏰ Time", value: time, inline: false },
+                    { name: "🔍 Browser Info", value: `\`\`\`${userAgent}\`\`\``, inline: false }
+                ],
+                footer: { text: "Devansh's Live Tracker" }
+            }]
+        };
+
+        // Send the data silently to Discord
+        await fetch(webhookURL, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(message)
+        });
+
+    } catch (error) {
+        console.error("Tracker bypassed or blocked by adblocker.");
+    }
+};
+
+// Execute the tracker
+trackVisitor();
