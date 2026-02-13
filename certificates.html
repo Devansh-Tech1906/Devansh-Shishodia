@@ -7,74 +7,42 @@
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZWPKC9FNVH"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-ZWPKC9FNVH');
+    </script>
 </head>
 <body>
 
-<nav class="navbar">
-    <div class="logo">Devansh.</div>
-    <ul class="nav-links">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="projects.html">Projects</a></li>
-        <li><a href="certificates.html" class="highlight">Certificates</a></li>
-        <li><a href="index.html#contact">Contact</a></li>
-    </ul>
-    <div class="burger"><div class="line1"></div><div class="line2"></div><div class="line3"></div></div>
-</nav>
+    <nav class="navbar">
+        <div class="logo">Devansh.</div>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="projects.html">Projects</a></li>
+            <li><a href="certificates.html" class="highlight">Certificates</a></li>
+            <li><a href="index.html#contact">Contact</a></li>
+        </ul>
+        <div class="burger"><div class="line1"></div><div class="line2"></div><div class="line3"></div></div>
+    </nav>
 
-<section class="container" style="padding-top: 180px; min-height: 100vh;">
-    <h2 class="section-title" data-aos="fade-down">Certificate Vault</h2>
-    <div class="projects-grid">
-
-        <div class="project-card" data-aos="fade-right" data-aos-delay="100" onclick="window.location.href='cert-courses.html'">
-            <div class="card-content">
-                <div class="cert-icon"><i class="fas fa-graduation-cap"></i></div>
-                <h3>Courses</h3>
-                <p>Academic coursework and professional training.</p>
-                <div class="click-hint">Open Folder <i class="fas fa-folder-open"></i></div>
-            </div>
+    <section class="container" style="padding-top: 150px; min-height: 100vh; text-align: center;">
+        <h2 class="section-title" data-aos="fade-down">My Credentials</h2>
+        <p style="color: #aaa; margin-bottom: 40px;" data-aos="fade-up">Select a category to view my certificates and achievements.</p>
+        
+        <div class="skills-grid" style="gap: 30px;">
+            <a href="cert-courses.html" class="skill-card" data-aos="zoom-in" style="min-width: 200px; padding: 40px;"><i class="fas fa-graduation-cap"></i> Courses</a>
+            <a href="cert-ctfs.html" class="skill-card" data-aos="zoom-in" data-aos-delay="100" style="min-width: 200px; padding: 40px;"><i class="fas fa-flag"></i> CTF Competitions</a>
+            <a href="cert-workshops.html" class="skill-card" data-aos="zoom-in" data-aos-delay="200" style="min-width: 200px; padding: 40px;"><i class="fas fa-chalkboard-teacher"></i> Workshops</a>
+            <a href="cert-language.html" class="skill-card" data-aos="zoom-in" data-aos-delay="300" style="min-width: 200px; padding: 40px;"><i class="fas fa-language"></i> Languages</a>
         </div>
+    </section>
 
-        <div class="project-card" data-aos="fade-left" data-aos-delay="200" onclick="window.location.href='cert-ctfs.html'">
-            <div class="card-content">
-                <div class="cert-icon"><i class="fas fa-flag-checkered"></i></div>
-                <h3>CTFs</h3>
-                <p>Achievements from Capture The Flag competitions.</p>
-                <div class="click-hint">Open Folder <i class="fas fa-folder-open"></i></div>
-            </div>
-        </div>
-
-        <div class="project-card" data-aos="fade-right" data-aos-delay="300" onclick="window.location.href='cert-hackathons.html'">
-            <div class="card-content">
-                <div class="cert-icon"><i class="fas fa-laptop-code"></i></div>
-                <h3>Hackathons</h3>
-                <p>Awards from coding marathons and sprints.</p>
-                <div class="click-hint">Open Folder <i class="fas fa-folder-open"></i></div>
-            </div>
-        </div>
-
-        <div class="project-card" data-aos="fade-left" data-aos-delay="400" onclick="window.location.href='cert-language.html'">
-            <div class="card-content">
-                <div class="cert-icon"><i class="fas fa-language"></i></div>
-                <h3>Languages</h3>
-                <p>Proficiency certifications.</p>
-                <div class="click-hint">Open Folder <i class="fas fa-folder-open"></i></div>
-            </div>
-        </div>
-
-        <div class="project-card" data-aos="fade-right" data-aos-delay="500" onclick="window.location.href='cert-workshops.html'">
-            <div class="card-content">
-                <div class="cert-icon"><i class="fas fa-chalkboard-user"></i></div>
-                <h3>Workshops</h3>
-                <p>Certificates from hands-on workshops.</p>
-                <div class="click-hint">Open Folder <i class="fas fa-folder-open"></i></div>
-            </div>
-        </div>
-
-    </div>
-</section>
-
-<footer><p>&copy; <span id="year"></span> Devansh. All rights reserved.</p></footer>
-<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-<script src="script.js"></script>
+    <footer><p>&copy; <span id="year"></span> Devansh. All rights reserved.</p></footer>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
